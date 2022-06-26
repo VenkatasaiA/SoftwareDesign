@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+
+    <!--==================== UNICONS ====================-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!--==================== SWIPER CSS ====================-->
+    <link rel="stylesheet" href="static/css/home/swiper-bundle.min.css">
+
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" href="static/css/home/styles.css">
+
+    <title>Responsive Portfolio Website</title>
+</head>.0l
+
+<body style="zoom: 90%;">
+    <!--==================== HEADER ====================-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Fuel Quote</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__item">
+                        <a href="home.html" class="nav__link">
+                            <i class="uil uil-estate nav__icon"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="fuel.html" class="nav__link">
+                            <i class="uil uil-user nav__icon"></i>Book Fuel
+                        </a>
+                    </li>
+                    <!-- <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class="uil uil-file-alt nav__icon"></i>Skills
+                        </a>
+                    </li> -->
+                    <!-- <li class="nav__item">
+                        <a href="#services" class="nav__link">
+                            <i class="uil uil-briefcase-alt nav__icon"></i>Services
+                        </a>
+                    </li> -->
+                    <li class="nav__item">
+                        <a href="info.html" class="nav__link">
+                            <i class="uil uil-user nav__icon"></i>About
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="login.html" class="nav__link">
+                            <i class="uil uil-message nav__icon"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
+            </div>
+            <div class="nav__btns">
+
+                <!-- Theme change button -->
+
+                <i class="uil uil-moon change-theme" id="theme-button1"></i>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        <!--==================== CONTACT ME ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Fuel Quote</h2>
+            <span class="section__subtitle" style="visibility:hidden">Get in touch</span>
+
+            <div class="contact__container container grid">
+
+                <form action="" class="contact__form grid">
+                    <div class="contact__inputs grid">
+                        <div class="contact__content">
+                            <label for="user_id" class="contact__label">ID</label>
+                            <input type="text" id="user_id" name="user_id" value="MOU1234567890121"
+                                class="contact__input" required disabled>
+                        </div>
+                        <!-- <div class="contact__content">
+                            <label for="bdate" class="contact__label">Office Name</label>
+                            <input type="email" id="office_name" name="office_name" class="contact__input" required>
+                            <input type=text name="bdate" id="bdate" class="datepicker contact__input" required>
+                        </div> -->
+                        <div class="contact__content">
+                            <label for="office_name" class="contact__label">Office Name</label>
+                            <input type="text" id="office_name" value="Sandeep kumar PVT." name="office_name"
+                                class="contact__input" disabled>
+                        </div>
+                    </div>
+
+                    <div class="contact__inputs grid">
+                        <div class="contact__content">
+                            <label for="quantity_quote" class="contact__label">
+                                Quantity</label>
+                            <input type="text" id="quantity_quote" name="quantity_quote" class="contact__input" onchange="myFunction12()">
+                        </div>
+                        <div class="contact__content">
+                            <label for="fuel_type" class="contact__label">Fuel type</label>
+                            <select name="fuel_type" id="fuel_type" class="contact__input" onchange="myFunction12()">
+                                <option value="None">--Select--</option>
+                                <option value="Gasoline">Gasoline</option>
+                                <option value="Diesel">Diesel</option>
+                                <!-- <option value="java">EUR</option> -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="contact__content">
+                        <label for="" class="contact__label">Delivery Address</label>
+                        <textarea name="" id="" cols="0" rows="2" class="contact__input"></textarea>
+                    </div>
+                    <div class="contact__inputs_3 grid">
+                        <div class="contact__content">
+                            <label for="" class="contact__label">Country</label>
+                            <!-- <input type="text" class="contact__input"> -->
+                            <!-- <select name="languages" id="lang" class="contact__input">
+                                <option value="javascript">USA</option>
+                                <option value="php">IND</option>
+                                <option value="java">EUR</option>
+                              </select> -->
+
+                            <select id="country" class="contact__input">
+                                <option>select country</option>
+                            </select>
+                        </div>
+                        <div class="contact__content">
+                            <label for="" class="contact__label">State</label>
+                            <!-- <input type="text" class="contact__input"> -->
+                            <select id="state-code" class="contact__input">
+                                <option>select State</option>
+                            </select>
+                        </div>
+
+                        <div class="contact__content">
+                            <label for="office_name" class="contact__label">Zip Code</label>
+                            <input type="text" id="office_name" value="123456789" name="office_name"
+                                class="contact__input" disabled>
+                        </div>
+                    </div>
+                    <div class="contact__inputs grid">
+                        <div class="contact__content">
+                            <label for="contact_gmail" class="contact__label">Gmail</label>
+                            <input type="email" id="contact_gmail" name="contact_gmail" value="sandeep@gmail.com"
+                                class="contact__input">
+                        </div>
+                        <div class="contact__content">
+                            <label for="telNo" class="contact__label">Phone Number</label>
+                            <!-- <input id="telNo" name="telNo" class="contact__input" type="tel" required
+                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                            <span class="validity"></span> -->
+                            <input type="text" id="telNo" name="telNo" value="000-000-0000"
+                                class="contact__input">
+                        </div>
+                    </div>
+
+
+                    <div>
+                        <a href="#" class="button button--flex">
+                            Save Details
+                            <i class="uil uil-save button__icon"></i>
+                        </a>
+                    </div>
+                </form>
+                <div class="contact__information-tab-main">
+                    <div class="contact__information-tab">
+                        <div class="contact__information">
+                            <i class="uil uil-usd-circle contact__icon"></i>
+                            <div>
+                                <h3 class=" contact__subtitle">Gallon price</h3>
+                                <span class="contact__title" id="Gallon_price">0.00</span>
+                            </div>
+                        </div>
+
+                        <div class="contact__information">
+                            <i class="uil uil-x contact__icon"></i>
+                            <div>
+                                <h3 class="contact__subtitle">Base amount</h3>
+                                <span class="contact__title" id="Gallon_price1">0.00</span> * <span class="contact__title" id="Gallon_price2">0 </span>=<span class="contact__title" id="Gallon_price3">0</span>
+                            </div>
+                        </div>
+
+                        <div class="contact__information">
+                            <i class="uil uil-receipt contact__icon"></i>
+                            <div>
+                                <h3 class="contact__subtitle">Tax</h3>
+                                <span class="contact__title">Tax  :@14%</span>
+                            </div>
+                        </div>
+                        <div class="contact__information">
+                            <i class="uil uil-bill contact__icon"></i>
+                            <div>
+                                <h3 class="contact__subtitle">Grand Total</h3>
+                                <span class="contact__title" id="grand_total">00.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h1 class="footer__title">Fuel Quote</h1>
+                    <span class="footer__subtitle">A Fuel Booking Portal</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="#services" class="footer__link">Booking</a>
+                    </li>
+                    <li>
+                        <a href="#portfolio" class="footer__link">Myprofile</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="footer__link">Contactme</a>
+                        <a href="#contact" class="footer__link">0123456789</a>
+                    </li>
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-instagram"></i>
+                    </a>
+
+                    <a href="https://twitter.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-twitter-alt"></i>
+                    </a>
+                </div>
+            </div>
+
+            <p class="footer__copy">&#169; Posh. All right reserved</p>
+        </div>
+    </footer>
+
+    <!--==================== SCROLL TOP ====================-->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+
+    <!--==================== SWIPER JS ====================-->
+    <script src="static/js/home/swiper-bundle.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+
+    <!--==================== MAIN JS ====================-->
+    <script src="static/js/home/main.js"></script>
+    <script src="static/js/home/country-states.js"></script>
+    <script>
+        let user_country_code = "select country";
+
+        (function () {
+            let country_list = country_and_states['country'];
+            let states_list = country_and_states['states'];
+
+            // creating country name drop-down
+            let option = '';
+            option += '<option>select country</option>';
+            for (let country_code in country_list) {
+                // set selected option user country
+                let selected = (country_code == user_country_code) ? ' selected' : '';
+                option += '<option value="' + country_code + '"' + selected + '>' + country_list[country_code] + '</option>';
+            }
+            document.getElementById('country').innerHTML = option;
+
+            // creating states name drop-down
+            let text_box = '<input type="text" class="input-text" id="state">';
+            let state_code_id = document.getElementById("state-code");
+
+            function create_states_dropdown() {
+                // get selected country code
+                let country_code = document.getElementById("country").value;
+                let states = states_list[country_code];
+                // invalid country code or no states add textbox
+                if (!states) {
+                    state_code_id.innerHTML = text_box;
+                    return;
+                }
+                let option = '';
+                if (states.length > 0) {
+                    option = '<select id="state">\n';
+                    for (let i = 0; i < states.length; i++) {
+                        option += '<option value="' + states[i].code + '">' + states[i].name + '</option>';
+                    }
+                    option += '</select>';
+                } else {
+                    // create input textbox if no states 
+                    option = text_box
+                }
+                state_code_id.innerHTML = option;
+            }
+
+            // country select change event
+            const country_select = document.getElementById("country");
+            country_select.addEventListener('change', create_states_dropdown);
+
+            create_states_dropdown();
+        })();
+
+        var currYear = (new Date()).getFullYear();
+
+        $(document).ready(function () {
+            $(".datepicker").datepicker({
+                format: "yyyy/mm/dd"
+            });
+        });
+    </script>
+</body>
+
+</html>
