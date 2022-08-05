@@ -168,8 +168,47 @@ function myFunction12() {
         document.getElementById("grand_total").innerHTML = hhhhh;
         document.getElementById("Total_Amount_Due").innerHTML = hhhhh;
     }
-    
   }
+
+function checking(){
+  var quantity_quote = document.getElementById("quantity_quote").value;
+  var bdate=document.getElementById("bdate").value
+  if(quantity_quote!='' && bdate!=''){
+   document.getElementById("Get_Quote_id").disabled = false;
+  }
+  else{
+   document.getElementById("order_fuel_id").disabled = true;
+   document.getElementById("Get_Quote_id").disabled = true;
+  }
+}
+
+function Get_Quote(){
+    var quantity_quote = document.getElementById("quantity_quote").value;
+    var state_code=document.getElementById("state-code").value
+    var UID = document.getElementById("user_id").value
+    details_={"quantity_quote":quantity_quote,"state_code":state_code,'user_uid':UID}
+    $.ajax({
+            url: '/fuel_quote/Get_Quote',
+            data: JSON.stringify(details_),
+            type: 'POST',
+            contentType: "application/json",
+            dataType: 'json',
+            success: function (data2)
+            {
+              document.getElementById("Margin_price").innerHTML = data2['margin_'];
+              document.getElementById("grand_total").innerHTML = data2['Suggested_Price'];
+              document.getElementById("Total_Amount_Due").innerHTML = data2['Total_Amount_Due'];
+              document.getElementById("order_fuel_id").disabled = false;
+              document.getElementById("Get_Quote_id").disabled = true;``
+            },
+            error: function(data2)
+            {
+              document.getElementById("order_fuel_id").disabled = true;
+              document.getElementById("Get_Quote_id").disabled = true;
+                console.log(data2);
+            }
+    });
+}
 
 
 

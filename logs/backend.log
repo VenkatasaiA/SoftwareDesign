@@ -1,0 +1,14 @@
+[2022-08-04 21:26:45,931][worker-0][INFO] Initialized logger with level 10 for worker 0
+[2022-08-04 21:26:46,136][worker-0][ERROR] An error happened during initializing app components: 'DB_CONNECTION_STRING'
+[2022-08-04 21:27:23,496][worker-0][INFO] Initialized logger with level 10 for worker 0
+[2022-08-04 21:27:23,691][worker-0][INFO] Initialized models
+[2022-08-04 21:27:23,733][worker-0][DEBUG] All tables are created
+[2022-08-04 21:27:23,811][worker-0][INFO] Initialized application
+[2022-08-04 21:27:23,812][worker-0][INFO] Initialized CORS
+[2022-08-04 21:27:23,812][worker-0][INFO] App Initialization is finished successfully
+[2022-08-05 00:11:01,410][worker-0][INFO] Initialized logger with level 10 for worker 0
+[2022-08-05 00:11:01,604][worker-0][INFO] Initialized models
+[2022-08-05 00:11:01,642][worker-0][DEBUG] All tables are created
+[2022-08-05 00:11:01,710][worker-0][INFO] Initialized application
+[2022-08-05 00:11:01,710][worker-0][INFO] Initialized CORS
+[2022-08-05 00:11:01,711][worker-0][INFO] App Initialization is finished successfully

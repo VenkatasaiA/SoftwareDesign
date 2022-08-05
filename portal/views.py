@@ -367,6 +367,8 @@ def fuel_quote_form(user_uid):
     if request.method == "POST":
         data = request.json
         fuel_quote_id = "BKID" + datetime.now().strftime("%d%m%Y%H%M%S") + get_random_numbers(2)
+        print(data['bdate'])
+        delivery_date=datetime.strptime(data['bdate'], '%Y-%m-%d')
         head = FuelQuote(fuel_quote_id=fuel_quote_id,
                        user_id=id,
                        quantity=data['quantity_quote'],
@@ -379,7 +381,7 @@ def fuel_quote_form(user_uid):
                        phone_number=mobile_number,
                        fuel_type=data['fuel_type'],
                        cur_gst=data['cur_gst'],
-                       delivery_date=data['bdate'])
+                       delivery_date=delivery_date)
         try:
             db.session.merge(head)
             db.session.commit()
@@ -396,6 +398,33 @@ def fuel_quote_form(user_uid):
             return jsonify(Status)
 
 
+@bp.route('/Get_Quote', methods=['POST'])
+def get_quote():
+    if request.method == "POST":
+        data = request.json
+        print(data)
+        fq = FuelQuote.query.filter_by(user_id=data["user_uid"]).all()
+        current_price_per_gallon= 1.50
+        Company_Profit_Factor=0.1
+        if data['state_code']=='TX':
+            location_factor=0.02
+        else:
+            location_factor = 0.04
+        if fq:
+            rate_history_factor = 0.01
+        else:
+            rate_history_factor = 0
+        if int(data['quantity_quote']) > 1000:
+            gallons_requested_factor = 0.02
+        else:
+            gallons_requested_factor = 0.03
+        margin_=current_price_per_gallon*(location_factor-rate_history_factor+gallons_requested_factor+Company_Profit_Factor)
+        Suggested_Price=current_price_per_gallon+margin_
+        Total_Amount_Due=int(data['quantity_quote'])*Suggested_Price
+        final_={"margin_":round(margin_,2),"Suggested_Price":Suggested_Price,"Total_Amount_Due":Total_Amount_Due}
+        return jsonify(final_)
+
+
 @bp.route('/logout', methods=['GET','POST'])
 def logout():
     if request.method == "GET":
@@ -406,3 +435,4 @@ def logout():
         gc.collect()
         session['user'] = False
         return render_template("login.html", invalid_msg=invalid_msg,access_name=access_name,access_pass=access_pass)
+

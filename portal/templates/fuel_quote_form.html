@@ -90,17 +90,19 @@
                             <label for="quantity_quote" class="contact__label">
                                 Quantity</label>
                             <input type="text" id="quantity_quote" name="quantity_quote" onkeypress="return /[0-9]/i.test(event.key)" class="contact__input"
-                                onchange="myFunction12()" >
+                            onchange="checking()">
                             <p style="color: red;font-size: 0.75rem;" id="lb_quantity_quote" class="required_">Quantity Required</p>
                         </div>
                         <div class="contact__content">
                             <label for="fuel_type" class="contact__label">Fuel type</label>
-                            <select name="fuel_type" id="fuel_type" class="contact__input" onchange="myFunction12()">
-                                <option value="None">--Select--</option>
-                                <option value="Gasoline">Gasoline</option>
-                                <option value="Diesel">Diesel</option>
-                                <!-- <option value="java">EUR</option> -->
-                            </select>
+                            <input type="text" id="fuel_type" value="Diesel" name="fuel_type"
+                                class="contact__input"  disabled>
+<!--                            <select name="fuel_type" id="fuel_type" class="contact__input">-->
+<!--                                <option value="None">&#45;&#45;Select&#45;&#45;</option>-->
+<!--                                <option value="Gasoline">Gasoline</option>-->
+<!--                                <option value="Diesel">Diesel</option>-->
+<!--                                &lt;!&ndash; <option value="java">EUR</option> &ndash;&gt;-->
+<!--                            </select>-->
                             <p style="color: red;font-size: 0.75rem;" id="lb_fuel_type" class="required_">Fuel type Required</p>
                         </div>
                     </div>
@@ -139,7 +141,7 @@
                         </div>
                         <div class="contact__content">
                             <label for="bdate" class="contact__label">Delivery Date</label>
-                            <input type=text name="bdate" id="bdate" class="datepicker contact__input" required>
+                            <input type=text name="bdate" id="bdate" class="datepicker contact__input" onchange="checking()" required>
                             <p style="color: red;font-size: 0.75rem;" id="lb_bdate" class="required_">Delivery Date Required</p>
                         </div>
                     </div>
@@ -159,13 +161,27 @@
                         </div>
                     </div>
 
+                    <div style="margin-left: 163px;">
+                        <button type="button" class="button button--flex" id="Get_Quote_id" onclick="Get_Quote()" style="margin-right: 50px;">Get Quote
+                            <i class="uil uil-processor button__icon"></i>
+                        </button>
 
-                    <div>
-                        <a onclick="order_fuel()" class="button button--flex">
-                            Save Details
+                        <button type="button" class="button button--flex" id="order_fuel_id" onclick="order_fuel()">Save Details
                             <i class="uil uil-save button__icon"></i>
-                        </a>
+                        </button>
+<!--                        <a onclick="Get_Quote()" id="Get_Quote_id" class="button button&#45;&#45;flex">-->
+<!--                            Get Quote-->
+<!--                            <i class="uil uil-save button__icon"></i>-->
+<!--                        </a>-->
+<!--                        <a onclick="order_fuel()" id="order_fuel_id" class="button button&#45;&#45;flex">-->
+<!--                            Save Details-->
+<!--                            <i class="uil uil-save button__icon"></i>-->
+<!--                        </a>-->
                     </div>
+                    <div>
+
+                    </div>
+
                 </form>
                 <div class="contact__information-tab-main">
                     <div class="contact__information-tab">
@@ -173,31 +189,29 @@
                             <i class="uil uil-usd-circle contact__icon"></i>
                             <div>
                                 <h3 class=" contact__subtitle">Gallon price</h3>
-                                <span class="contact__title" id="Gallon_price">0.00</span>
+                                <span class="contact__title" id="Gallon_price">1.50</span>
                             </div>
                         </div>
 
                         <div class="contact__information">
                             <i class="uil uil-x contact__icon"></i>
                             <div>
-                                <h3 class="contact__subtitle">Base amount</h3>
-                                <span class="contact__title" id="Gallon_price1">0.00</span> * <span
-                                    class="contact__title" id="Gallon_price2">0 </span>=<span class="contact__title"
-                                    id="Gallon_price3">0</span>
+                                <h3 class="contact__subtitle">Margin</h3>
+                                <span class="contact__title" id="Margin_price">0.00</span>
                             </div>
                         </div>
 
-                        <div class="contact__information">
-                            <i class="uil uil-receipt contact__icon"></i>
-                            <div>
-                                <h3 class="contact__subtitle">Tax</h3>
-                                <span class="contact__title">Tax :@14%</span>
-                            </div>
-                        </div>
+<!--                        <div class="contact__information">-->
+<!--                            <i class="uil uil-receipt contact__icon"></i>-->
+<!--                            <div>-->
+<!--                                <h3 class="contact__subtitle">Tax</h3>-->
+<!--                                <span class="contact__title">Tax :@14%</span>-->
+<!--                            </div>-->
+<!--                        </div>-->
                         <div class="contact__information">
                             <i class="uil uil-bill contact__icon"></i>
                             <div>
-                                <h3 class="contact__subtitle">Grand Total</h3>
+                                <h3 class="contact__subtitle">Suggested Price/Gallon</h3>
                                 <span class="contact__title" id="grand_total">00.00</span>
                             </div>
                         </div>
@@ -324,8 +338,7 @@
 
         $(document).ready(function () {
             $(".datepicker").datepicker({
-                dateFormat: "yy-mm-dd",
-                timeFormat: "hh:mm:ss"
+                dateFormat: "yy-mm-dd",timeFormat: "hh:mm:ss"
             });
         });
 
@@ -340,6 +353,13 @@
       $("#quantity_quote").val($("#quantity_quote").val().replace(/[^0-9\s]/gi, '').replace(/[_\s]/g, '').toLowerCase());
      });
     });
+</script>
+
+<script>
+window.addEventListener('load', (event) => {
+   document.getElementById("order_fuel_id").disabled = true;
+   document.getElementById("Get_Quote_id").disabled = true;
+});
 </script>
 </body>
 

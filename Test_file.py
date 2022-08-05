@@ -121,13 +121,13 @@ class TestClientRegistration():
 class TestClientProfileManagement():
     def test_client_profile_management_1(self):
         client = app.test_client()
-        url = '/fuel_quote/client_profile_management/2407202205263653643'
+        url = '/fuel_quote/client_profile_management/0508202206011869254'
         response = client.get(url)
         assert response.status_code == 200
 
     def test_client_profile_management_2(self):
         client = app.test_client()
-        url = '/fuel_quote/client_profile_management/2407202207130294980'
+        url = '/fuel_quote/client_profile_management/0508202206035517998'
         response = client.get(url)
         assert response.status_code == 200
 
@@ -179,7 +179,7 @@ class TestUpdateClient:
 
     def test_update_client_6(self):
         client = app.test_client()
-        url = '/fuel_quote/Update_client/2407202205263653643'
+        url = '/fuel_quote/Update_client/0508202206035517998'
         data = {"First_Name": "Sandeep_kumar", "Address_1": "Sandeep adfsd", "Address_2": "11111111","Zip_Code": "11111111",
                 "City_name": "HYD","Phone_Number":"9542192823","state_code":'09',"country":"DZ"}
         response = client.post(url, json=data)
@@ -189,7 +189,7 @@ class TestUpdateClient:
 class TestFuelQuoteHistory():
     def test_fuel_quote_history_1(self):
         client = app.test_client()
-        url = '/fuel_quote/fuel_quote_history/2407202205263653643'
+        url = '/fuel_quote/fuel_quote_history/0508202206035517998'
         response = client.get(url)
         assert response.status_code == 200
 
@@ -198,20 +198,20 @@ class TestFuelQuoteForm():
     def test_fuel_quote_form_1(self):
         client = app.test_client()
         print(client)
-        url = '/fuel_quote/fuel_quote_form/2407202205263653643'
+        url = '/fuel_quote/fuel_quote_form/0508202206035517998'
         response = client.get(url)
         assert response.status_code == 200
 
     def test_fuel_quote_form_2(self):
         client = app.test_client()
         print(client)
-        url = '/fuel_quote/fuel_quote_form/2407202205263653643'
+        url = '/fuel_quote/fuel_quote_form/0508202200365182866'
         data = {"quantity_quote": "8",
                 "Gallon_price": "5.006",
                 "Total_Amount_Due": "45.654720000000005",
                 "fuel_type":"Gasoline",
                 "cur_gst":"14%",
-                "bdate":"2022-07-15 00:00:00"}
+                "bdate":"2022-07-15"}
         response = client.post(url, json=data)
         assert response.status_code == 200
 
@@ -224,9 +224,14 @@ class TestLogOut():
         assert response.status_code == 200
 
 
-
-
-
+class TestGetQuote():
+    def test_client_registration_1(self):
+        client = app.test_client()
+        print(client)
+        url = '/fuel_quote/Get_Quote'
+        data = {'quantity_quote': '10000', 'state_code': 'PR', 'user_uid': '0508202200365182866'}
+        response = client.post(url, json=data)
+        assert response.status_code == 200
 
 # tent =TestClientProfileManagement()
 #

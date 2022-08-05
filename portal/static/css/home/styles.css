@@ -136,6 +136,10 @@ a {
   text-decoration: none !important;
 }
 
+button {
+  text-decoration: none !important;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -366,6 +370,7 @@ ol, ul, dl {
   padding: 1rem;
   border-radius: .5rem;
   font-weight: var(--font-medium);
+  border-color:var(--first-color);
 }
 
 .button:hover {
